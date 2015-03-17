@@ -2,6 +2,8 @@
 #include <signal.h>
 #include <unistd.h>
 
+#define STDOUT_FILENO 1
+
 void signal_handler( int no );
 
 int main() {
@@ -24,7 +26,7 @@ int main() {
 }
 
 void signal_handler( int no ) {
-  write( 1, "HAHAHA! INVALID SIGNAL!\n", 25 );
-  write( 1, "stop 3 seconds\n", 16 );
+  write( STDOUT_FILENO, "HAHAHA! INVALID SIGNAL!\n", 25 );
+  write( STDOUT_FILENO, "stop 3 seconds\n", 16 );
   sleep(3);
 }
