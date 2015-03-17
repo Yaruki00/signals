@@ -5,8 +5,7 @@
 void signal_handler( int no );
 
 int main() {
-  char buf[256];
-  int ret;
+
   struct sigaction sa;
 
   sa.sa_handler = signal_handler;
@@ -24,7 +23,9 @@ int main() {
 }
 
 void signal_handler( int no ) {
+  
   write( 1, "HAHAHA! INVALID SIGNAL!\n", 25 );
   write( 1, "stop 3 seconds\n", 16 );
   sleep(3);
+  
 }
